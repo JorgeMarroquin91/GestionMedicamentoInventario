@@ -1,0 +1,109 @@
+﻿@model GestionMedicamentoInventario.Models.Compras
+
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "idform" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Compras</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.cantidad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { id = "cantidad", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.precioCompra, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.precioCompra, new { htmlAttributes = new { id = "precio", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.precioCompra, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { id = "fecha", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Kardex.idKardex, "idKardex", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(Model => Model.idKardex, ViewBag.idKardex as SelectList, new { id = "idKar", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Kardex.idKardex, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.idLote, "idLote", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(Model => Model.idLote, ViewBag.idLote as SelectList, new { id = "idLote", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idLote, "", new { @class = "text-danger" })
+                @Html.ActionLink("Agregar Lote", "Create", "Lotes", new { id = "id" }, new { id = "lotes", onclick = "Agregar();", @class = "btn btn-default" })
+            </div>
+        </div>
+        <input type="button" id="btnCreate" value="Create" class="btn btn-default">
+    </div>
+}
+
+@Html.ActionLink("Nueva Entrada", "Create", "Compras", new { id = "id" }, new { id = "nueva", @class = "btn btn-default" })
+<br />
+<br />
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+    $(document).ready(function () {
+        if ($("#idLote").val() == null) {
+            $("#idLote").hide();
+            $("#fecha").attr("disabled", true);
+            $("#precio").attr("disabled", true);
+            $("#cantidad").attr("disabled", true);
+            $("#btnCreate").attr("disabled", true);
+            $("#nueva").hide();
+        } else {
+            $("#lotes").hide();
+            $("#nueva").hide();
+        }
+    });
+    function Agregar() {
+        $('#lotes').attr('href', function () {
+            return this.href.replace('id', $('#idKar').val());
+        });
+    };
+
+    $("#btnCreate").click(function () {
+        if ($("#cantidad").val() == "" || $("#precio").val() == "" || $("#idKar").val() == "" || $("#idLote").val() == "" || $("#fecha").val() == "") {
+            alert("No se puede introducir descuento vacio");
+        } else {
+            $.ajax({
+                url: '/Compras/Create',
+                type: 'post',
+                dataType: 'json',
+                contents: "application/json; charset=utf-8",
+                data: {
+                    __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+                    compras: { cantidad: $("#cantidad").val(), precio: $("#precio").val(), fecha: $("#fecha").val(), idKardex: $("#idKar").val(), idLote: $("#idLote").val() }
+                }, success: function (idCompra) {
+                    alert("Entrada Creada Satisfactoriamente");
+                    $("#idform").hide();
+                    $("#nueva").show();
+                }
+            });
+        }
+    });
+</script>

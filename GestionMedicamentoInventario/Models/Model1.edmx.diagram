@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84f8606bd28f40c1b3b335917c67ab5d" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Categoria" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Compras" Width="1.5" PointX="7.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Descuento" Width="1.5" PointX="11.625" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Detalle" Width="1.5" PointX="2.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Empresa" Width="1.5" PointX="10.875" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Inventario" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Kardex" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Lote" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Medicamento" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Rol" Width="1.5" PointX="13.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Usuario" Width="1.5" PointX="10.625" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Ventas" Width="1.5" PointX="9.25" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Medicamento_Categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Compra_Lote" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Compras_Kardex" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Ventas_Descuento" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Deatalle_Lote" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Detalle_Inventario" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Empresa_Inventario" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Empresa_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Kardex_Medicamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Ventas_Kardex" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Lote_Medicamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Ventas_Lote" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.FK_Usuario_Rol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

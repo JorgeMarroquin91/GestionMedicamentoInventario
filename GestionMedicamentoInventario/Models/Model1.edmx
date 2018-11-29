@@ -1,0 +1,1113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_A41D6A_GestionInventarioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCategoria" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Compras">
+          <Key>
+            <PropertyRef Name="idCompra" />
+          </Key>
+          <Property Name="idCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="precioCompra" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="idLote" Type="int" />
+          <Property Name="idKardex" Type="int" />
+          <Property Name="fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="Descuento">
+          <Key>
+            <PropertyRef Name="idDescuento" />
+          </Key>
+          <Property Name="idDescuento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="monto" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="porcentaje" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Detalle">
+          <Key>
+            <PropertyRef Name="idDetalle" />
+          </Key>
+          <Property Name="idDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idLote" Type="int" />
+          <Property Name="idInventario" Type="int" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreEmpresa" Type="varchar" MaxLength="50" />
+          <Property Name="direcicon" Type="varchar" MaxLength="100" />
+          <Property Name="telefonoEmpresa" Type="varchar" MaxLength="15" />
+          <Property Name="nacionalidad" Type="varchar" MaxLength="25" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="idInventario" Type="int" />
+        </EntityType>
+        <EntityType Name="Inventario">
+          <Key>
+            <PropertyRef Name="idInventario" />
+          </Key>
+          <Property Name="idInventario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="existencia" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Kardex">
+          <Key>
+            <PropertyRef Name="idKardex" />
+          </Key>
+          <Property Name="idKardex" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="saldo" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="idMedicamento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lote">
+          <Key>
+            <PropertyRef Name="idLote" />
+          </Key>
+          <Property Name="idLote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numLote" Type="int" />
+          <Property Name="cantidadLote" Type="int" />
+          <Property Name="fechaVencimiento" Type="date" />
+          <Property Name="idMedicamento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medicamento">
+          <Key>
+            <PropertyRef Name="idMedicamento" />
+          </Key>
+          <Property Name="idMedicamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreMedicamento" Type="varchar" MaxLength="50" />
+          <Property Name="descripcionMedicamento" Type="varchar" MaxLength="100" />
+          <Property Name="idCategoria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoriaDetails" Type="bit" Nullable="false" />
+          <Property Name="categoriaDelete" Type="bit" Nullable="false" />
+          <Property Name="categoriaEdit" Type="bit" Nullable="false" />
+          <Property Name="categoriaCreate" Type="bit" Nullable="false" />
+          <Property Name="categoriaIndex" Type="bit" Nullable="false" />
+          <Property Name="comprasCreate" Type="bit" Nullable="false" />
+          <Property Name="comprasDelete" Type="bit" Nullable="false" />
+          <Property Name="comprasDetails" Type="bit" Nullable="false" />
+          <Property Name="comprasEdit" Type="bit" Nullable="false" />
+          <Property Name="comprasIndex" Type="bit" Nullable="false" />
+          <Property Name="descuentoCreate" Type="bit" Nullable="false" />
+          <Property Name="descuentoDelete" Type="bit" Nullable="false" />
+          <Property Name="descuentoDetails" Type="bit" Nullable="false" />
+          <Property Name="descuentoEdit" Type="bit" Nullable="false" />
+          <Property Name="descuentoIndex" Type="bit" Nullable="false" />
+          <Property Name="detallesCreate" Type="bit" Nullable="false" />
+          <Property Name="detallesDelete" Type="bit" Nullable="false" />
+          <Property Name="detallesDetails" Type="bit" Nullable="false" />
+          <Property Name="detallesEdit" Type="bit" Nullable="false" />
+          <Property Name="detallesIndex" Type="bit" Nullable="false" />
+          <Property Name="empresaCreate" Type="bit" Nullable="false" />
+          <Property Name="empresaDelete" Type="bit" Nullable="false" />
+          <Property Name="empresaDetails" Type="bit" Nullable="false" />
+          <Property Name="empresaEdit" Type="bit" Nullable="false" />
+          <Property Name="empresaIndex" Type="bit" Nullable="false" />
+          <Property Name="inventarioCreate" Type="bit" Nullable="false" />
+          <Property Name="inventarioDelete" Type="bit" Nullable="false" />
+          <Property Name="inventarioDetails" Type="bit" Nullable="false" />
+          <Property Name="inventarioEdit" Type="bit" Nullable="false" />
+          <Property Name="inventarioIndex" Type="bit" Nullable="false" />
+          <Property Name="kardexCreate" Type="bit" Nullable="false" />
+          <Property Name="kardexDelete" Type="bit" Nullable="false" />
+          <Property Name="kardexDetails" Type="bit" Nullable="false" />
+          <Property Name="kardexEdit" Type="bit" Nullable="false" />
+          <Property Name="kardexIndex" Type="bit" Nullable="false" />
+          <Property Name="loteCreate" Type="bit" Nullable="false" />
+          <Property Name="loteoDelete" Type="bit" Nullable="false" />
+          <Property Name="loteDetails" Type="bit" Nullable="false" />
+          <Property Name="loteEdit" Type="bit" Nullable="false" />
+          <Property Name="loteIndex" Type="bit" Nullable="false" />
+          <Property Name="medicamentoCreate" Type="bit" Nullable="false" />
+          <Property Name="medicamentoDelete" Type="bit" Nullable="false" />
+          <Property Name="medicamentoDetails" Type="bit" Nullable="false" />
+          <Property Name="medicamentoEdit" Type="bit" Nullable="false" />
+          <Property Name="medicamentoIndex" Type="bit" Nullable="false" />
+          <Property Name="rolCreate" Type="bit" Nullable="false" />
+          <Property Name="rolDelete" Type="bit" Nullable="false" />
+          <Property Name="rolDetails" Type="bit" Nullable="false" />
+          <Property Name="rolEdit" Type="bit" Nullable="false" />
+          <Property Name="rolIndex" Type="bit" Nullable="false" />
+          <Property Name="usuarioCreate" Type="bit" Nullable="false" />
+          <Property Name="usuarioDelete" Type="bit" Nullable="false" />
+          <Property Name="usuarioDetails" Type="bit" Nullable="false" />
+          <Property Name="usuarioEdit" Type="bit" Nullable="false" />
+          <Property Name="usuarioIndex" Type="bit" Nullable="false" />
+          <Property Name="ventasCreate" Type="bit" Nullable="false" />
+          <Property Name="ventasDelete" Type="bit" Nullable="false" />
+          <Property Name="ventasDetails" Type="bit" Nullable="false" />
+          <Property Name="ventasEdit" Type="bit" Nullable="false" />
+          <Property Name="ventasIndex" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="apellidoUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="idRol" Type="int" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="userName" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="idVenta" />
+          </Key>
+          <Property Name="idVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="precioVenta" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="idDescuento" Type="int" />
+          <Property Name="idLote" Type="int" />
+          <Property Name="idKardex" Type="int" />
+          <Property Name="fecha" Type="date" />
+        </EntityType>
+        <Association Name="FK_Compra_Lote">
+          <End Role="Lote" Type="Self.Lote" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Compras" Type="Self.Compras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote">
+              <PropertyRef Name="idLote" />
+            </Principal>
+            <Dependent Role="Compras">
+              <PropertyRef Name="idLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Compras_Kardex">
+          <End Role="Kardex" Type="Self.Kardex" Multiplicity="0..1" />
+          <End Role="Compras" Type="Self.Compras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kardex">
+              <PropertyRef Name="idKardex" />
+            </Principal>
+            <Dependent Role="Compras">
+              <PropertyRef Name="idKardex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deatalle_Lote">
+          <End Role="Lote" Type="Self.Lote" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Detalle" Type="Self.Detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote">
+              <PropertyRef Name="idLote" />
+            </Principal>
+            <Dependent Role="Detalle">
+              <PropertyRef Name="idLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detalle_Inventario">
+          <End Role="Inventario" Type="Self.Inventario" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Detalle" Type="Self.Detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventario">
+              <PropertyRef Name="idInventario" />
+            </Principal>
+            <Dependent Role="Detalle">
+              <PropertyRef Name="idInventario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empresa_Inventario">
+          <End Role="Inventario" Type="Self.Inventario" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventario">
+              <PropertyRef Name="idInventario" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="idInventario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empresa_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kardex_Medicamento">
+          <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Kardex" Type="Self.Kardex" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicamento">
+              <PropertyRef Name="idMedicamento" />
+            </Principal>
+            <Dependent Role="Kardex">
+              <PropertyRef Name="idMedicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lote_Medicamento">
+          <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Lote" Type="Self.Lote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicamento">
+              <PropertyRef Name="idMedicamento" />
+            </Principal>
+            <Dependent Role="Lote">
+              <PropertyRef Name="idMedicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medicamento_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="Medicamento">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_Descuento">
+          <End Role="Descuento" Type="Self.Descuento" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Descuento">
+              <PropertyRef Name="idDescuento" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="idDescuento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_Kardex">
+          <End Role="Kardex" Type="Self.Kardex" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kardex">
+              <PropertyRef Name="idKardex" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="idKardex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_Lote">
+          <End Role="Lote" Type="Self.Lote" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote">
+              <PropertyRef Name="idLote" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="idLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A41D6A_GestionInventarioModelStoreContainer">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Compras" EntityType="Self.Compras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Descuento" EntityType="Self.Descuento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detalle" EntityType="Self.Detalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventario" EntityType="Self.Inventario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kardex" EntityType="Self.Kardex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lote" EntityType="Self.Lote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medicamento" EntityType="Self.Medicamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Compra_Lote" Association="Self.FK_Compra_Lote">
+            <End Role="Lote" EntitySet="Lote" />
+            <End Role="Compras" EntitySet="Compras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Compras_Kardex" Association="Self.FK_Compras_Kardex">
+            <End Role="Kardex" EntitySet="Kardex" />
+            <End Role="Compras" EntitySet="Compras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deatalle_Lote" Association="Self.FK_Deatalle_Lote">
+            <End Role="Lote" EntitySet="Lote" />
+            <End Role="Detalle" EntitySet="Detalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detalle_Inventario" Association="Self.FK_Detalle_Inventario">
+            <End Role="Inventario" EntitySet="Inventario" />
+            <End Role="Detalle" EntitySet="Detalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empresa_Inventario" Association="Self.FK_Empresa_Inventario">
+            <End Role="Inventario" EntitySet="Inventario" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empresa_Usuario" Association="Self.FK_Empresa_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kardex_Medicamento" Association="Self.FK_Kardex_Medicamento">
+            <End Role="Medicamento" EntitySet="Medicamento" />
+            <End Role="Kardex" EntitySet="Kardex" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lote_Medicamento" Association="Self.FK_Lote_Medicamento">
+            <End Role="Medicamento" EntitySet="Medicamento" />
+            <End Role="Lote" EntitySet="Lote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medicamento_Categoria" Association="Self.FK_Medicamento_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Medicamento" EntitySet="Medicamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Descuento" Association="Self.FK_Ventas_Descuento">
+            <End Role="Descuento" EntitySet="Descuento" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Kardex" Association="Self.FK_Ventas_Kardex">
+            <End Role="Kardex" EntitySet="Kardex" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Lote" Association="Self.FK_Ventas_Lote">
+            <End Role="Lote" EntitySet="Lote" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_A41D6A_GestionInventarioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCategoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Medicamento" Relationship="Self.FK_Medicamento_Categoria" FromRole="Categoria" ToRole="Medicamento" />
+        </EntityType>
+        <EntityType Name="Compras">
+          <Key>
+            <PropertyRef Name="idCompra" />
+          </Key>
+          <Property Name="idCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="precioCompra" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="idLote" Type="Int32" />
+          <Property Name="idKardex" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Lote" Relationship="Self.FK_Compra_Lote" FromRole="Compras" ToRole="Lote" />
+          <NavigationProperty Name="Kardex" Relationship="Self.FK_Compras_Kardex" FromRole="Compras" ToRole="Kardex" />
+        </EntityType>
+        <EntityType Name="Descuento">
+          <Key>
+            <PropertyRef Name="idDescuento" />
+          </Key>
+          <Property Name="idDescuento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="monto" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="porcentaje" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Ventas" Relationship="Self.FK_Ventas_Descuento" FromRole="Descuento" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Detalle">
+          <Key>
+            <PropertyRef Name="idDetalle" />
+          </Key>
+          <Property Name="idDetalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idLote" Type="Int32" />
+          <Property Name="idInventario" Type="Int32" />
+          <NavigationProperty Name="Lote" Relationship="Self.FK_Deatalle_Lote" FromRole="Detalle" ToRole="Lote" />
+          <NavigationProperty Name="Inventario" Relationship="Self.FK_Detalle_Inventario" FromRole="Detalle" ToRole="Inventario" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreEmpresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direcicon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefonoEmpresa" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="nacionalidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="idInventario" Type="Int32" />
+          <NavigationProperty Name="Inventario" Relationship="Self.FK_Empresa_Inventario" FromRole="Empresa" ToRole="Inventario" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Empresa_Usuario" FromRole="Empresa" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Inventario">
+          <Key>
+            <PropertyRef Name="idInventario" />
+          </Key>
+          <Property Name="idInventario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="existencia" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Detalle" Relationship="Self.FK_Detalle_Inventario" FromRole="Inventario" ToRole="Detalle" />
+          <NavigationProperty Name="Empresa" Relationship="Self.FK_Empresa_Inventario" FromRole="Inventario" ToRole="Empresa" />
+        </EntityType>
+        <EntityType Name="Kardex">
+          <Key>
+            <PropertyRef Name="idKardex" />
+          </Key>
+          <Property Name="idKardex" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="saldo" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="idMedicamento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Compras" Relationship="Self.FK_Compras_Kardex" FromRole="Kardex" ToRole="Compras" />
+          <NavigationProperty Name="Medicamento" Relationship="Self.FK_Kardex_Medicamento" FromRole="Kardex" ToRole="Medicamento" />
+          <NavigationProperty Name="Ventas" Relationship="Self.FK_Ventas_Kardex" FromRole="Kardex" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Lote">
+          <Key>
+            <PropertyRef Name="idLote" />
+          </Key>
+          <Property Name="idLote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numLote" Type="Int32" />
+          <Property Name="cantidadLote" Type="Int32" />
+          <Property Name="fechaVencimiento" Type="DateTime" Precision="0" />
+          <Property Name="idMedicamento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Compras" Relationship="Self.FK_Compra_Lote" FromRole="Lote" ToRole="Compras" />
+          <NavigationProperty Name="Detalle" Relationship="Self.FK_Deatalle_Lote" FromRole="Lote" ToRole="Detalle" />
+          <NavigationProperty Name="Medicamento" Relationship="Self.FK_Lote_Medicamento" FromRole="Lote" ToRole="Medicamento" />
+          <NavigationProperty Name="Ventas" Relationship="Self.FK_Ventas_Lote" FromRole="Lote" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Medicamento">
+          <Key>
+            <PropertyRef Name="idMedicamento" />
+          </Key>
+          <Property Name="idMedicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreMedicamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcionMedicamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idCategoria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categoria" Relationship="Self.FK_Medicamento_Categoria" FromRole="Medicamento" ToRole="Categoria" />
+          <NavigationProperty Name="Kardex" Relationship="Self.FK_Kardex_Medicamento" FromRole="Medicamento" ToRole="Kardex" />
+          <NavigationProperty Name="Lote" Relationship="Self.FK_Lote_Medicamento" FromRole="Medicamento" ToRole="Lote" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoriaCreate" Type="Boolean" Nullable="false" />
+          <Property Name="categoriaDelete" Type="Boolean" Nullable="false" />
+          <Property Name="categoriaDetails" Type="Boolean" Nullable="false" />
+          <Property Name="categoriaEdit" Type="Boolean" Nullable="false" />
+          <Property Name="categoriaIndex" Type="Boolean" Nullable="false" />
+          <Property Name="comprasCreate" Type="Boolean" Nullable="false" />
+          <Property Name="comprasDelete" Type="Boolean" Nullable="false" />
+          <Property Name="comprasDetails" Type="Boolean" Nullable="false" />
+          <Property Name="comprasEdit" Type="Boolean" Nullable="false" />
+          <Property Name="comprasIndex" Type="Boolean" Nullable="false" />
+          <Property Name="descuentoCreate" Type="Boolean" Nullable="false" />
+          <Property Name="descuentoDelete" Type="Boolean" Nullable="false" />
+          <Property Name="descuentoDetails" Type="Boolean" Nullable="false" />
+          <Property Name="descuentoEdit" Type="Boolean" Nullable="false" />
+          <Property Name="descuentoIndex" Type="Boolean" Nullable="false" />
+          <Property Name="detallesCreate" Type="Boolean" Nullable="false" />
+          <Property Name="detallesDelete" Type="Boolean" Nullable="false" />
+          <Property Name="detallesDetails" Type="Boolean" Nullable="false" />
+          <Property Name="detallesEdit" Type="Boolean" Nullable="false" />
+          <Property Name="detallesIndex" Type="Boolean" Nullable="false" />
+          <Property Name="empresaCreate" Type="Boolean" Nullable="false" />
+          <Property Name="empresaDelete" Type="Boolean" Nullable="false" />
+          <Property Name="empresaDetails" Type="Boolean" Nullable="false" />
+          <Property Name="empresaEdit" Type="Boolean" Nullable="false" />
+          <Property Name="empresaIndex" Type="Boolean" Nullable="false" />
+          <Property Name="inventarioCreate" Type="Boolean" Nullable="false" />
+          <Property Name="inventarioDelete" Type="Boolean" Nullable="false" />
+          <Property Name="inventarioDetails" Type="Boolean" Nullable="false" />
+          <Property Name="inventarioEdit" Type="Boolean" Nullable="false" />
+          <Property Name="inventarioIndex" Type="Boolean" Nullable="false" />
+          <Property Name="kardexCreate" Type="Boolean" Nullable="false" />
+          <Property Name="kardexDelete" Type="Boolean" Nullable="false" />
+          <Property Name="kardexDetails" Type="Boolean" Nullable="false" />
+          <Property Name="kardexEdit" Type="Boolean" Nullable="false" />
+          <Property Name="kardexIndex" Type="Boolean" Nullable="false" />
+          <Property Name="loteCreate" Type="Boolean" Nullable="false" />
+          <Property Name="loteoDelete" Type="Boolean" Nullable="false" />
+          <Property Name="loteDetails" Type="Boolean" Nullable="false" />
+          <Property Name="loteEdit" Type="Boolean" Nullable="false" />
+          <Property Name="loteIndex" Type="Boolean" Nullable="false" />
+          <Property Name="medicamentoCreate" Type="Boolean" Nullable="false" />
+          <Property Name="medicamentoDelete" Type="Boolean" Nullable="false" />
+          <Property Name="medicamentoDetails" Type="Boolean" Nullable="false" />
+          <Property Name="medicamentoEdit" Type="Boolean" Nullable="false" />
+          <Property Name="medicamentoIndex" Type="Boolean" Nullable="false" />
+          <Property Name="rolCreate" Type="Boolean" Nullable="false" />
+          <Property Name="rolDelete" Type="Boolean" Nullable="false" />
+          <Property Name="rolDetails" Type="Boolean" Nullable="false" />
+          <Property Name="rolEdit" Type="Boolean" Nullable="false" />
+          <Property Name="rolIndex" Type="Boolean" Nullable="false" />
+          <Property Name="usuarioCreate" Type="Boolean" Nullable="false" />
+          <Property Name="usuarioDelete" Type="Boolean" Nullable="false" />
+          <Property Name="usuarioDetails" Type="Boolean" Nullable="false" />
+          <Property Name="usuarioEdit" Type="Boolean" Nullable="false" />
+          <Property Name="usuarioIndex" Type="Boolean" Nullable="false" />
+          <Property Name="ventasCreate" Type="Boolean" Nullable="false" />
+          <Property Name="ventasDelete" Type="Boolean" Nullable="false" />
+          <Property Name="ventasDetails" Type="Boolean" Nullable="false" />
+          <Property Name="ventasEdit" Type="Boolean" Nullable="false" />
+          <Property Name="ventasIndex" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Rol" FromRole="Rol" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidoUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idRol" Type="Int32" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empresa" Relationship="Self.FK_Empresa_Usuario" FromRole="Usuario" ToRole="Empresa" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK_Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="idVenta" />
+          </Key>
+          <Property Name="idVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="precioVenta" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="idDescuento" Type="Int32" />
+          <Property Name="idLote" Type="Int32" />
+          <Property Name="idKardex" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Descuento" Relationship="Self.FK_Ventas_Descuento" FromRole="Ventas" ToRole="Descuento" />
+          <NavigationProperty Name="Kardex" Relationship="Self.FK_Ventas_Kardex" FromRole="Ventas" ToRole="Kardex" />
+          <NavigationProperty Name="Lote" Relationship="Self.FK_Ventas_Lote" FromRole="Ventas" ToRole="Lote" />
+        </EntityType>
+        <Association Name="FK_Medicamento_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="Medicamento">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Compra_Lote">
+          <End Role="Lote" Type="Self.Lote" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Compras" Type="Self.Compras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote">
+              <PropertyRef Name="idLote" />
+            </Principal>
+            <Dependent Role="Compras">
+              <PropertyRef Name="idLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Compras_Kardex">
+          <End Role="Kardex" Type="Self.Kardex" Multiplicity="0..1" />
+          <End Role="Compras" Type="Self.Compras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kardex">
+              <PropertyRef Name="idKardex" />
+            </Principal>
+            <Dependent Role="Compras">
+              <PropertyRef Name="idKardex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_Descuento">
+          <End Role="Descuento" Type="Self.Descuento" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Descuento">
+              <PropertyRef Name="idDescuento" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="idDescuento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deatalle_Lote">
+          <End Role="Lote" Type="Self.Lote" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Detalle" Type="Self.Detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote">
+              <PropertyRef Name="idLote" />
+            </Principal>
+            <Dependent Role="Detalle">
+              <PropertyRef Name="idLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detalle_Inventario">
+          <End Role="Inventario" Type="Self.Inventario" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Detalle" Type="Self.Detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventario">
+              <PropertyRef Name="idInventario" />
+            </Principal>
+            <Dependent Role="Detalle">
+              <PropertyRef Name="idInventario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empresa_Inventario">
+          <End Role="Inventario" Type="Self.Inventario" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventario">
+              <PropertyRef Name="idInventario" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="idInventario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empresa_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kardex_Medicamento">
+          <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Kardex" Type="Self.Kardex" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicamento">
+              <PropertyRef Name="idMedicamento" />
+            </Principal>
+            <Dependent Role="Kardex">
+              <PropertyRef Name="idMedicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_Kardex">
+          <End Role="Kardex" Type="Self.Kardex" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kardex">
+              <PropertyRef Name="idKardex" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="idKardex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lote_Medicamento">
+          <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Lote" Type="Self.Lote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicamento">
+              <PropertyRef Name="idMedicamento" />
+            </Principal>
+            <Dependent Role="Lote">
+              <PropertyRef Name="idMedicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_Lote">
+          <End Role="Lote" Type="Self.Lote" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote">
+              <PropertyRef Name="idLote" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="idLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A41D6A_GestionInventarioEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+          <EntitySet Name="Compras" EntityType="Self.Compras" />
+          <EntitySet Name="Descuento" EntityType="Self.Descuento" />
+          <EntitySet Name="Detalle" EntityType="Self.Detalle" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+          <EntitySet Name="Inventario" EntityType="Self.Inventario" />
+          <EntitySet Name="Kardex" EntityType="Self.Kardex" />
+          <EntitySet Name="Lote" EntityType="Self.Lote" />
+          <EntitySet Name="Medicamento" EntityType="Self.Medicamento" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" />
+          <AssociationSet Name="FK_Medicamento_Categoria" Association="Self.FK_Medicamento_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Medicamento" EntitySet="Medicamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Compra_Lote" Association="Self.FK_Compra_Lote">
+            <End Role="Lote" EntitySet="Lote" />
+            <End Role="Compras" EntitySet="Compras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Compras_Kardex" Association="Self.FK_Compras_Kardex">
+            <End Role="Kardex" EntitySet="Kardex" />
+            <End Role="Compras" EntitySet="Compras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Descuento" Association="Self.FK_Ventas_Descuento">
+            <End Role="Descuento" EntitySet="Descuento" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deatalle_Lote" Association="Self.FK_Deatalle_Lote">
+            <End Role="Lote" EntitySet="Lote" />
+            <End Role="Detalle" EntitySet="Detalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detalle_Inventario" Association="Self.FK_Detalle_Inventario">
+            <End Role="Inventario" EntitySet="Inventario" />
+            <End Role="Detalle" EntitySet="Detalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empresa_Inventario" Association="Self.FK_Empresa_Inventario">
+            <End Role="Inventario" EntitySet="Inventario" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empresa_Usuario" Association="Self.FK_Empresa_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kardex_Medicamento" Association="Self.FK_Kardex_Medicamento">
+            <End Role="Medicamento" EntitySet="Medicamento" />
+            <End Role="Kardex" EntitySet="Kardex" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Kardex" Association="Self.FK_Ventas_Kardex">
+            <End Role="Kardex" EntitySet="Kardex" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lote_Medicamento" Association="Self.FK_Lote_Medicamento">
+            <End Role="Medicamento" EntitySet="Medicamento" />
+            <End Role="Lote" EntitySet="Lote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Lote" Association="Self.FK_Ventas_Lote">
+            <End Role="Lote" EntitySet="Lote" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_A41D6A_GestionInventarioModelStoreContainer" CdmEntityContainer="DB_A41D6A_GestionInventarioEntities1">
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Compras">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Compras">
+              <MappingFragment StoreEntitySet="Compras">
+                <ScalarProperty Name="idCompra" ColumnName="idCompra" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precioCompra" ColumnName="precioCompra" />
+                <ScalarProperty Name="idLote" ColumnName="idLote" />
+                <ScalarProperty Name="idKardex" ColumnName="idKardex" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Descuento">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Descuento">
+              <MappingFragment StoreEntitySet="Descuento">
+                <ScalarProperty Name="idDescuento" ColumnName="idDescuento" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detalle">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Detalle">
+              <MappingFragment StoreEntitySet="Detalle">
+                <ScalarProperty Name="idDetalle" ColumnName="idDetalle" />
+                <ScalarProperty Name="idLote" ColumnName="idLote" />
+                <ScalarProperty Name="idInventario" ColumnName="idInventario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="nombreEmpresa" ColumnName="nombreEmpresa" />
+                <ScalarProperty Name="direcicon" ColumnName="direcicon" />
+                <ScalarProperty Name="telefonoEmpresa" ColumnName="telefonoEmpresa" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idInventario" ColumnName="idInventario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventario">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Inventario">
+              <MappingFragment StoreEntitySet="Inventario">
+                <ScalarProperty Name="idInventario" ColumnName="idInventario" />
+                <ScalarProperty Name="existencia" ColumnName="existencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kardex">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Kardex">
+              <MappingFragment StoreEntitySet="Kardex">
+                <ScalarProperty Name="idKardex" ColumnName="idKardex" />
+                <ScalarProperty Name="saldo" ColumnName="saldo" />
+                <ScalarProperty Name="idMedicamento" ColumnName="idMedicamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lote">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Lote">
+              <MappingFragment StoreEntitySet="Lote">
+                <ScalarProperty Name="idLote" ColumnName="idLote" />
+                <ScalarProperty Name="numLote" ColumnName="numLote" />
+                <ScalarProperty Name="cantidadLote" ColumnName="cantidadLote" />
+                <ScalarProperty Name="fechaVencimiento" ColumnName="fechaVencimiento" />
+                <ScalarProperty Name="idMedicamento" ColumnName="idMedicamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicamento">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Medicamento">
+              <MappingFragment StoreEntitySet="Medicamento">
+                <ScalarProperty Name="idMedicamento" ColumnName="idMedicamento" />
+                <ScalarProperty Name="nombreMedicamento" ColumnName="nombreMedicamento" />
+                <ScalarProperty Name="descripcionMedicamento" ColumnName="descripcionMedicamento" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="categoriaCreate" ColumnName="categoriaCreate" />
+                <ScalarProperty Name="categoriaDelete" ColumnName="categoriaDelete" />
+                <ScalarProperty Name="categoriaDetails" ColumnName="categoriaDetails" />
+                <ScalarProperty Name="categoriaEdit" ColumnName="categoriaEdit" />
+                <ScalarProperty Name="categoriaIndex" ColumnName="categoriaIndex" />
+                <ScalarProperty Name="comprasCreate" ColumnName="comprasCreate" />
+                <ScalarProperty Name="comprasDelete" ColumnName="comprasDelete" />
+                <ScalarProperty Name="comprasDetails" ColumnName="comprasDetails" />
+                <ScalarProperty Name="comprasEdit" ColumnName="comprasEdit" />
+                <ScalarProperty Name="comprasIndex" ColumnName="comprasIndex" />
+                <ScalarProperty Name="descuentoCreate" ColumnName="descuentoCreate" />
+                <ScalarProperty Name="descuentoDelete" ColumnName="descuentoDelete" />
+                <ScalarProperty Name="descuentoDetails" ColumnName="descuentoDetails" />
+                <ScalarProperty Name="descuentoEdit" ColumnName="descuentoEdit" />
+                <ScalarProperty Name="descuentoIndex" ColumnName="descuentoIndex" />
+                <ScalarProperty Name="detallesCreate" ColumnName="detallesCreate" />
+                <ScalarProperty Name="detallesDelete" ColumnName="detallesDelete" />
+                <ScalarProperty Name="detallesDetails" ColumnName="detallesDetails" />
+                <ScalarProperty Name="detallesEdit" ColumnName="detallesEdit" />
+                <ScalarProperty Name="detallesIndex" ColumnName="detallesIndex" />
+                <ScalarProperty Name="empresaCreate" ColumnName="empresaCreate" />
+                <ScalarProperty Name="empresaDelete" ColumnName="empresaDelete" />
+                <ScalarProperty Name="empresaDetails" ColumnName="empresaDetails" />
+                <ScalarProperty Name="empresaEdit" ColumnName="empresaEdit" />
+                <ScalarProperty Name="empresaIndex" ColumnName="empresaIndex" />
+                <ScalarProperty Name="inventarioCreate" ColumnName="inventarioCreate" />
+                <ScalarProperty Name="inventarioDelete" ColumnName="inventarioDelete" />
+                <ScalarProperty Name="inventarioDetails" ColumnName="inventarioDetails" />
+                <ScalarProperty Name="inventarioEdit" ColumnName="inventarioEdit" />
+                <ScalarProperty Name="inventarioIndex" ColumnName="inventarioIndex" />
+                <ScalarProperty Name="kardexCreate" ColumnName="kardexCreate" />
+                <ScalarProperty Name="kardexDelete" ColumnName="kardexDelete" />
+                <ScalarProperty Name="kardexDetails" ColumnName="kardexDetails" />
+                <ScalarProperty Name="kardexEdit" ColumnName="kardexEdit" />
+                <ScalarProperty Name="kardexIndex" ColumnName="kardexIndex" />
+                <ScalarProperty Name="loteCreate" ColumnName="loteCreate" />
+                <ScalarProperty Name="loteoDelete" ColumnName="loteoDelete" />
+                <ScalarProperty Name="loteDetails" ColumnName="loteDetails" />
+                <ScalarProperty Name="loteEdit" ColumnName="loteEdit" />
+                <ScalarProperty Name="loteIndex" ColumnName="loteIndex" />
+                <ScalarProperty Name="medicamentoCreate" ColumnName="medicamentoCreate" />
+                <ScalarProperty Name="medicamentoDelete" ColumnName="medicamentoDelete" />
+                <ScalarProperty Name="medicamentoDetails" ColumnName="medicamentoDetails" />
+                <ScalarProperty Name="medicamentoEdit" ColumnName="medicamentoEdit" />
+                <ScalarProperty Name="medicamentoIndex" ColumnName="medicamentoIndex" />
+                <ScalarProperty Name="rolCreate" ColumnName="rolCreate" />
+                <ScalarProperty Name="rolDelete" ColumnName="rolDelete" />
+                <ScalarProperty Name="rolDetails" ColumnName="rolDetails" />
+                <ScalarProperty Name="rolEdit" ColumnName="rolEdit" />
+                <ScalarProperty Name="rolIndex" ColumnName="rolIndex" />
+                <ScalarProperty Name="usuarioCreate" ColumnName="usuarioCreate" />
+                <ScalarProperty Name="usuarioDelete" ColumnName="usuarioDelete" />
+                <ScalarProperty Name="usuarioDetails" ColumnName="usuarioDetails" />
+                <ScalarProperty Name="usuarioEdit" ColumnName="usuarioEdit" />
+                <ScalarProperty Name="usuarioIndex" ColumnName="usuarioIndex" />
+                <ScalarProperty Name="ventasCreate" ColumnName="ventasCreate" />
+                <ScalarProperty Name="ventasDelete" ColumnName="ventasDelete" />
+                <ScalarProperty Name="ventasDetails" ColumnName="ventasDetails" />
+                <ScalarProperty Name="ventasEdit" ColumnName="ventasEdit" />
+                <ScalarProperty Name="ventasIndex" ColumnName="ventasIndex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+                <ScalarProperty Name="apellidoUsuario" ColumnName="apellidoUsuario" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Ventas">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
+                <ScalarProperty Name="idDescuento" ColumnName="idDescuento" />
+                <ScalarProperty Name="idLote" ColumnName="idLote" />
+                <ScalarProperty Name="idKardex" ColumnName="idKardex" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

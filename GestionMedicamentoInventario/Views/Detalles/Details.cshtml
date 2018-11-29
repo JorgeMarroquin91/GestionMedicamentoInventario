@@ -1,0 +1,43 @@
+﻿@model GestionMedicamentoInventario.Models.Detalle
+
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Detalle</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Lote.idLote)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Lote.idLote)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Inventario.idInventario)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Inventario.idInventario)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idDetalle }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

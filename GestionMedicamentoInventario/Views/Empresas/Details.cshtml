@@ -1,0 +1,75 @@
+﻿@model GestionMedicamentoInventario.Models.Empresa
+
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Empresa</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombreEmpresa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nombreEmpresa)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.direcicon)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.direcicon)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.telefonoEmpresa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.telefonoEmpresa)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.nacionalidad)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nacionalidad)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Inventario.idInventario)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Inventario.idInventario)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Usuario.nombreUsuario)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Usuario.nombreUsuario)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idEmpresa }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

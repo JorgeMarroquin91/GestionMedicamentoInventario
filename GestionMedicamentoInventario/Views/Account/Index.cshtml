@@ -1,0 +1,36 @@
+﻿@model GestionMedicamentoInventario.Models.AccountViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            @ViewBag.Error
+            <table cellpadding="2" cellspacing="2">
+                <tr>
+                    <td>@Html.LabelFor(model => model.Account.userName)</td>
+                    <td>@Html.TextBoxFor(model => model.Account.userName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Account.password)</td>
+                    <td>@Html.TextBoxFor(model => model.Account.password)</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="Login" /></td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>

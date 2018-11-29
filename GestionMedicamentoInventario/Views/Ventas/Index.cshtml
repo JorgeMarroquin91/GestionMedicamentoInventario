@@ -1,0 +1,73 @@
+﻿@model IEnumerable<GestionMedicamentoInventario.Models.Ventas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precioVenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descuento.idDescuento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kardex.idKardex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lote.idLote)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.cantidad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.precioVenta)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Descuento.idDescuento)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Kardex.idKardex)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Lote.idLote)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.idVenta }) |
+        @Html.ActionLink("Details", "Details", new { id = item.idVenta }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.idVenta })
+    </td>
+</tr>
+}
+
+    </table>
+</body>
+</html>

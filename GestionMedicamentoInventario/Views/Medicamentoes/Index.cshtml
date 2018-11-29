@@ -1,0 +1,55 @@
+﻿@model IEnumerable<GestionMedicamentoInventario.Models.Medicamento>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreMedicamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcionMedicamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.nombreCategoria)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreMedicamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcionMedicamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.nombreCategoria)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.idMedicamento }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.idMedicamento }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.idMedicamento })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

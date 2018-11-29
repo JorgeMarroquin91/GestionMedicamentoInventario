@@ -1,0 +1,61 @@
+﻿@model IEnumerable<GestionMedicamentoInventario.Models.Lote>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.numLote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cantidadLote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaVencimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicamento.nombreMedicamento)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numLote)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cantidadLote)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaVencimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Medicamento.nombreMedicamento)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.idLote }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.idLote }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.idLote })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

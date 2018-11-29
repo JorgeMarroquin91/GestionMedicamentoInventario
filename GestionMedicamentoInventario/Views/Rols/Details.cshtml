@@ -1,0 +1,499 @@
+﻿@model GestionMedicamentoInventario.Models.Rol
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rol</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.categoriaCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoriaCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categoriaDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoriaDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categoriaDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoriaDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categoriaEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoriaEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categoriaIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoriaIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comprasCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comprasCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comprasDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comprasDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comprasDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comprasDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comprasEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comprasEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comprasIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comprasIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descuentoCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descuentoCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descuentoDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descuentoDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descuentoDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descuentoDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descuentoEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descuentoEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descuentoIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descuentoIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detallesCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detallesCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detallesDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detallesDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detallesDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detallesDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detallesEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detallesEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detallesIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detallesIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empresaCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empresaCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empresaDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empresaDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empresaDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empresaDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empresaEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empresaEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empresaIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empresaIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inventarioCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inventarioCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inventarioDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inventarioDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inventarioDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inventarioDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inventarioEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inventarioEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inventarioIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inventarioIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kardexCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kardexCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kardexDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kardexDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kardexDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kardexDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kardexEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kardexEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kardexIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kardexIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loteCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loteCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loteoDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loteoDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loteDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loteDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loteEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loteEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loteIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loteIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicamentoCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicamentoCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicamentoDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicamentoDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicamentoDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicamentoDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicamentoEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicamentoEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicamentoIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicamentoIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rolCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rolCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rolDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rolDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rolDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rolDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rolEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rolEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rolIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rolIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuarioCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuarioCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuarioDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuarioDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuarioDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuarioDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuarioEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuarioEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuarioIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuarioIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ventasCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ventasCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ventasDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ventasDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ventasDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ventasDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ventasEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ventasEdit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ventasIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ventasIndex)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idRol }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
