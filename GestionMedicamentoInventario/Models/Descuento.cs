@@ -6,6 +6,7 @@
 //     Los cambios manuales en este archivo se sobrescribirán si se regenera el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
 
 namespace GestionMedicamentoInventario.Models
 {
@@ -21,7 +22,9 @@ namespace GestionMedicamentoInventario.Models
         }
     
         public int idDescuento { get; set; }
+        [Display(Name = "Monto")]
         public Nullable<decimal> monto { get; set; }
+        [Display(Name = "Porcentaje")]
         public Nullable<decimal> porcentaje { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -6,6 +6,7 @@
 //     Los cambios manuales en este archivo se sobrescribirán si se regenera el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
 
 namespace GestionMedicamentoInventario.Models
 {
@@ -22,8 +23,11 @@ namespace GestionMedicamentoInventario.Models
         }
     
         public int idMedicamento { get; set; }
+        [Display(Name = "Nombre")]
         public string nombreMedicamento { get; set; }
+        [Display(Name = "Descripción")]
         public string descripcionMedicamento { get; set; }
+        [Display(Name = "Categoria")]
         public int idCategoria { get; set; }
     
         public virtual Categoria Categoria { get; set; }

@@ -6,6 +6,7 @@
 //     Los cambios manuales en este archivo se sobrescribirán si se regenera el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
 
 namespace GestionMedicamentoInventario.Models
 {
@@ -21,12 +22,19 @@ namespace GestionMedicamentoInventario.Models
         }
     
         public int idUsuario { get; set; }
+        [Display(Name ="Nombre")]
         public string nombreUsuario { get; set; }
+        [Display(Name = "Apellido")]
         public string apellidoUsuario { get; set; }
+        [Display(Name = "Email")]
         public string email { get; set; }
+        [Display(Name = "Telefono")]
         public string telefono { get; set; }
+        [Display(Name = "Rol")]
         public Nullable<int> idRol { get; set; }
+        [Display(Name = "Contraseña")]
         public string password { get; set; }
+        [Display(Name = "Nombre de Usuario")]
         public string userName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

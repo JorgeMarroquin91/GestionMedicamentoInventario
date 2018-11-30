@@ -6,6 +6,7 @@
 //     Los cambios manuales en este archivo se sobrescribirán si se regenera el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
 
 namespace GestionMedicamentoInventario.Models
 {
@@ -15,11 +16,17 @@ namespace GestionMedicamentoInventario.Models
     public partial class Ventas
     {
         public int idVenta { get; set; }
+        [Display(Name = "Cantidad")]
         public Nullable<decimal> cantidad { get; set; }
+        [Display(Name = "Precio")]
         public Nullable<decimal> precioVenta { get; set; }
+        [Display(Name = "Descuento")]
         public Nullable<int> idDescuento { get; set; }
+        [Display(Name = "Id Lote")]
         public Nullable<int> idLote { get; set; }
+        [Display(Name = "Medicamento")]
         public Nullable<int> idKardex { get; set; }
+        [Display(Name = "Fecha")]
         public Nullable<System.DateTime> fecha { get; set; }
     
         public virtual Descuento Descuento { get; set; }

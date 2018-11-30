@@ -6,6 +6,7 @@
 //     Los cambios manuales en este archivo se sobrescribirán si se regenera el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
 
 namespace GestionMedicamentoInventario.Models
 {
@@ -15,7 +16,9 @@ namespace GestionMedicamentoInventario.Models
     public partial class Detalle
     {
         public int idDetalle { get; set; }
+        [Display(Name = "Id Lote")]
         public Nullable<int> idLote { get; set; }
+        [Display(Name = "Id Inventario")]
         public Nullable<int> idInventario { get; set; }
     
         public virtual Lote Lote { get; set; }

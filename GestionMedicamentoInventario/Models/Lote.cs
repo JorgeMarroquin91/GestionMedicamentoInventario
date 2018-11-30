@@ -6,6 +6,7 @@
 //     Los cambios manuales en este archivo se sobrescribirán si se regenera el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
 
 namespace GestionMedicamentoInventario.Models
 {
@@ -23,9 +24,13 @@ namespace GestionMedicamentoInventario.Models
         }
     
         public int idLote { get; set; }
+        [Display(Name = "Numero de Lote")]
         public Nullable<int> numLote { get; set; }
+        [Display(Name = "Cantidad")]
         public Nullable<int> cantidadLote { get; set; }
+        [Display(Name = "Fecha de Vencimiento")]
         public Nullable<System.DateTime> fechaVencimiento { get; set; }
+        [Display(Name = "Medicamento")]
         public int idMedicamento { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

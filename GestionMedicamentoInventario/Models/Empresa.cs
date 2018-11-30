@@ -6,6 +6,7 @@
 //     Los cambios manuales en este archivo se sobrescribirán si se regenera el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
 
 namespace GestionMedicamentoInventario.Models
 {
@@ -15,11 +16,17 @@ namespace GestionMedicamentoInventario.Models
     public partial class Empresa
     {
         public int idEmpresa { get; set; }
+        [Display(Name = "Empresa")]
         public string nombreEmpresa { get; set; }
+        [Display(Name = "Direccion")]
         public string direcicon { get; set; }
+        [Display(Name = "Telefono")]
         public string telefonoEmpresa { get; set; }
+        [Display(Name = "Nacionalidad")]
         public string nacionalidad { get; set; }
+        [Display(Name = "Usuarios")]
         public Nullable<int> idUsuario { get; set; }
+        [Display(Name = "Id Inventario")]
         public Nullable<int> idInventario { get; set; }
     
         public virtual Inventario Inventario { get; set; }
