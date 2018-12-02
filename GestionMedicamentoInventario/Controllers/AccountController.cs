@@ -20,9 +20,9 @@ namespace GestionMedicamentoInventario.Controllers
         public ActionResult Login(AccountViewModel avm)
         {
             AccountModel am = new AccountModel();
-            if (string.IsNullOrEmpty(avm.Account.userName) || string.IsNullOrEmpty(avm.Account.password) || am.login(avm.Account.userName, avm.Account.password) == null)
+            if (string.IsNullOrEmpty(avm.Account.userName) || string.IsNullOrEmpty(avm.Account.password) || am.login(avm.Account.userName, avm.Account.password).userName == null || am.login(avm.Account.userName, avm.Account.password).password == null)
             {
-                ViewBag.Error = "Account Invalid";
+                ViewBag.Error = "Usuario No Valido";
                 return View("Index");
             }
             SessionPersister.Username = avm.Account.userName;

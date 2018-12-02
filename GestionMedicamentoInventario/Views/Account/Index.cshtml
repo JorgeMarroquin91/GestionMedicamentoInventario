@@ -114,13 +114,13 @@
     <div>
         @using (Html.BeginForm("Login", "Account", FormMethod.Post))
         {
-            @ViewBag.Error
             <div class="container">
                 <div class="login-form">
                     <div class="main-div">
                         <div class="panel">
                             <h2>Iniciar Sesión</h2>
                             <p>Por Favor Introduce tus Credenciales</p>
+                            @ViewBag.Error
                         </div>
                         <form id="Login">
                             <div class="form-group">
@@ -129,7 +129,8 @@
                             <div class="form-group">
                                 @Html.EditorFor(model => model.Account.password, new { htmlAttributes = new { id = "inputPassword", placeholder = "Contraseña", @class = "form-control" } })
                             </div>
-                            <br /><br />
+                            <br />
+                            <br />
                             <input type="submit" class="btn btn-primary" value="Aceptar" />
                         </form>
                     </div>

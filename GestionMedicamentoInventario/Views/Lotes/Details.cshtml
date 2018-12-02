@@ -13,47 +13,51 @@
     <title>Details</title>
 </head>
 <body>
-    <div>
-        <h4>Lote</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.numLote)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.numLote)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.cantidadLote)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.cantidadLote)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.fechaVencimiento)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.fechaVencimiento)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Medicamento.nombreMedicamento)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Medicamento.nombreMedicamento)
-            </dd>
-    
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.idLote }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <div class="styles">
+            <div>
+                <h4>Lote</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.numLote)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.numLote)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.cantidadLote)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.cantidadLote)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.fechaVencimiento)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.fechaVencimiento)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Medicamento.nombreMedicamento)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Medicamento.nombreMedicamento)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.idLote }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+            </div>
+        </div>
 </body>
 </html>
