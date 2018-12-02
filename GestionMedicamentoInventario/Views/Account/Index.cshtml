@@ -127,7 +127,7 @@
                                 @Html.EditorFor(model => model.Account.userName, new { htmlAttributes = new { id = "inputEmail", placeholder = "Nombre de Usuario", @class = "form-control" } })
                             </div><br />
                             <div class="form-group">
-                                @Html.EditorFor(model => model.Account.password, new { htmlAttributes = new { id = "inputPassword", placeholder = "Contraseña", @class = "form-control" } })
+                                @Html.EditorFor(model => model.Account.password, new { htmlAttributes = new {Type="password" ,id = "inputPassword", placeholder = "Contraseña", @class = "form-control" } })
                             </div>
                             <br />
                             <br />

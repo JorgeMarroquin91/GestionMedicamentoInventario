@@ -5,142 +5,147 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<div class="col-sm-9 col-md-9 col-lg-9">
+    <div class="styles">
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "idform" }))
-{
-    @Html.AntiForgeryToken()
+        <h2>Create</h2>
 
-    <div class="form-horizontal">
-        <h4>Descuento</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.monto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.monto, new { htmlAttributes = new { id = "monto", @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.monto, "", new { @class = "text-danger" })
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "idform" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Descuento</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.monto, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.monto, new { htmlAttributes = new { id = "monto", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.monto, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.porcentaje, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.porcentaje, new { htmlAttributes = new { id = "porcentaje", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.porcentaje, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" value="Create" id="btncreate" class="btn btn-default" />
+                    </div>
+                </div>
             </div>
-        </div>
+        }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.porcentaje, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.porcentaje, new { htmlAttributes = new { id = "porcentaje", @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.porcentaje, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.ActionLink("Regresar", "Create", "Ventas", new { idDescuento = "idescuento" }, new { id = "regresar" })
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Create" id="btncreate" class="btn btn-default" />
-            </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index")
         </div>
     </div>
-}
+    </div>
 
-@Html.ActionLink("Regresar", "Create", "Ventas", new { idDescuento = "idescuento" }, new { id = "regresar" })
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
-
-<script>
-    //Esconde  el link para regresar a la pantalla venta y desabilita el boton crear de la pantalla crear/descuentoes
-    $(document).ready(function () {
-        $("#regresar").hide();
-        $("#btncreate").attr("disabled", true);
-    });
-
-    //habilita el boton create cuando hacemos click en el txtbox de monto
-    $("#monto").click(function () {
-        if ($("#monto").val() == "" && $("#porcentaje").val() == "") {
-            $("#btncreate").attr("disabled", false);
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
         }
 
-        if ($("#monto").val() != "" && $("#porcentaje").val() == "") {
-            $("#btncreate").attr("disabled", false);
-            $("#porcentaje").attr("disabled", false);
-        }
+        <script>
+            //Esconde  el link para regresar a la pantalla venta y desabilita el boton crear de la pantalla crear/descuentoes
+            $(document).ready(function () {
+                $("#regresar").hide();
+                $("#btncreate").attr("disabled", true);
+            });
 
-        if ($("#monto").val() == "" && $("#porcentaje").val() != "") {
-            alert("Solo se permite ingresar un descuento");
-            $("#monto").attr("disabled", true);
-            $("#btncreate").attr("disabled", true);
-        }
-    });
+            //habilita el boton create cuando hacemos click en el txtbox de monto
+            $("#monto").click(function () {
+                if ($("#monto").val() == "" && $("#porcentaje").val() == "") {
+                    $("#btncreate").attr("disabled", false);
+                }
 
-    //habilita el boton create cuando hacemos click en el txtbox de porcentaje
-    $("#porcentaje").click(function () {
-        if ($("#monto").val() == "" && $("#porcentaje").val() == "") {
-            $("#btncreate").attr("disabled", false);
-        }
+                if ($("#monto").val() != "" && $("#porcentaje").val() == "") {
+                    $("#btncreate").attr("disabled", false);
+                    $("#porcentaje").attr("disabled", false);
+                }
 
-        if ($("#monto").val() == "" && $("#porcentaje").val() != "") {
-            $("#btncreate").attr("disabled", false);
-            $("#monto").attr("disabled", false);
-        }
-
-        if ($("#monto").val() != "" && $("#porcentaje").val() == "") {
-            alert("Solo se permite ingresar un descuento");
-            $("#porcentaje").attr("disabled", true);
-            $("#btncreate").attr("disabled", true);
-        }
-    });
-
-</script>
-
-<script>
-    //funcion que hace un post al controlador descuentoes/create para crear un nuevo descuento
-    $("#btncreate").click(function () {
-
-        if ($("#monto").val() == "" && $("#porcentaje").val() == "") {
-            alert("No se puede introducir descuento vacio");
-            $("#btncreate").attr("disabled", true);
-        }
-
-        if ($("#monto").val() != "" && $("#porcentaje").val() == "") {
-            $.ajax({
-                url: '/Descuentoes/Create',
-                type: 'post',
-                dataType: 'json',
-                contents: "application/json; charset=utf-8",
-                data: {
-                    __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
-                    descuento: { monto: $("#monto").val(), descuento: $("#descuento").val() }
-                }, success: function (idDescuento) {
-                    $("#idform").hide();
-                    $("#regresar").show();
-                    $("#regresar").attr("href", function () {
-                        return this.href.replace("idescuento", idDescuento);
-                    });
+                if ($("#monto").val() == "" && $("#porcentaje").val() != "") {
+                    alert("Solo se permite ingresar un descuento");
+                    $("#monto").attr("disabled", true);
+                    $("#btncreate").attr("disabled", true);
                 }
             });
-        }
 
-        //funcion que hace un post al controlador descuentoes/create para crear un nuevo descuento
-        if ($("#monto").val() == "" && $("#porcentaje").val() != "") {
-            $.ajax({
-                url: '/Descuentoes/Create',
-                type: 'post',
-                dataType: 'json',
-                contents: "application/json; charset=utf-8",
-                data: {
-                    __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
-                    descuento: { monto: $("#monto").val(), descuento: $("#descuento").val() }
-                }, success: function (idDescuento) {
-                    $("#idform").hide();
-                    $("#regresar").show();
-                    $("#regresar").attr("href", function () {
-                        return this.href.replace("idescuento", idDescuento);
-                    });
+            //habilita el boton create cuando hacemos click en el txtbox de porcentaje
+            $("#porcentaje").click(function () {
+                if ($("#monto").val() == "" && $("#porcentaje").val() == "") {
+                    $("#btncreate").attr("disabled", false);
+                }
+
+                if ($("#monto").val() == "" && $("#porcentaje").val() != "") {
+                    $("#btncreate").attr("disabled", false);
+                    $("#monto").attr("disabled", false);
+                }
+
+                if ($("#monto").val() != "" && $("#porcentaje").val() == "") {
+                    alert("Solo se permite ingresar un descuento");
+                    $("#porcentaje").attr("disabled", true);
+                    $("#btncreate").attr("disabled", true);
                 }
             });
-        }
 
-    });
-</script>
+        </script>
+
+        <script>
+            //funcion que hace un post al controlador descuentoes/create para crear un nuevo descuento
+            $("#btncreate").click(function () {
+
+                if ($("#monto").val() == "" && $("#porcentaje").val() == "") {
+                    alert("No se puede introducir descuento vacio");
+                    $("#btncreate").attr("disabled", true);
+                }
+
+                if ($("#monto").val() != "" && $("#porcentaje").val() == "") {
+                    $.ajax({
+                        url: '/Descuentoes/Create',
+                        type: 'post',
+                        dataType: 'json',
+                        contents: "application/json; charset=utf-8",
+                        data: {
+                            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+                            descuento: { monto: $("#monto").val(), descuento: $("#descuento").val() }
+                        }, success: function (idDescuento) {
+                            $("#idform").hide();
+                            $("#regresar").show();
+                            $("#regresar").attr("href", function () {
+                                return this.href.replace("idescuento", idDescuento);
+                            });
+                        }
+                    });
+                }
+
+                //funcion que hace un post al controlador descuentoes/create para crear un nuevo descuento
+                if ($("#monto").val() == "" && $("#porcentaje").val() != "") {
+                    $.ajax({
+                        url: '/Descuentoes/Create',
+                        type: 'post',
+                        dataType: 'json',
+                        contents: "application/json; charset=utf-8",
+                        data: {
+                            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+                            descuento: { monto: $("#monto").val(), descuento: $("#descuento").val() }
+                        }, success: function (idDescuento) {
+                            $("#idform").hide();
+                            $("#regresar").show();
+                            $("#regresar").attr("href", function () {
+                                return this.href.replace("idescuento", idDescuento);
+                            });
+                        }
+                    });
+                }
+
+            });
+        </script>

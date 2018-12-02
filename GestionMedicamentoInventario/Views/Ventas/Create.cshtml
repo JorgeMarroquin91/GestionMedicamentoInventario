@@ -6,84 +6,88 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<div class="col-sm-9 col-md-9 col-lg-9">
+    <div class="styles">
+
+        <h2>Create</h2>
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Ventas</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.cantidad, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { id = "cantidad", @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
+            <div class="form-horizontal">
+                <h4>Ventas</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.cantidad, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { id = "cantidad", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.precioVenta, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.precioVenta, new { htmlAttributes = new { id = "precio", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.precioVenta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.idDescuento, "idDescuento", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("idDescuento", null, htmlAttributes: new { id = "descuento", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.idDescuento, "", new { @class = "text-danger" })
+                        @Html.ActionLink("Agregar Descuento", "Create", "Descuentoes", "", new { id = "desto", @class = "btn btn-default" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.idKardex, "idKardex", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("idKardex", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.idKardex, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { id = "fecha", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.precioVenta, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.precioVenta, new { htmlAttributes = new { id = "precio", @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.precioVenta, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.idDescuento, "idDescuento", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idDescuento", null, htmlAttributes: new { id = "descuento", @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.idDescuento, "", new { @class = "text-danger" })
-                @Html.ActionLink("Agregar Descuento", "Create", "Descuentoes", "", new { id = "desto", @class = "btn btn-default" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.idKardex, "idKardex", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idKardex", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.idKardex, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { id = "fecha", @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
-
-<script>
-    $(document).ready(function () {
-        if ($("#descuento").val() == null) {
-            $("#descuento").hide();
-            $("#cantidad").attr("disabled", true);
-            $("#precio").attr("disabled", true);
-            $("#fecha").attr("disabled", true);
-        } else {
-            $("#descuento").show();
-            $("#desto").attr("disabled",true);
         }
-    });
-</script>
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+</div>
+    </div>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+
+        <script>
+            $(document).ready(function () {
+                if ($("#descuento").val() == null) {
+                    $("#descuento").hide();
+                    $("#cantidad").attr("disabled", true);
+                    $("#precio").attr("disabled", true);
+                    $("#fecha").attr("disabled", true);
+                } else {
+                    $("#descuento").show();
+                    $("#desto").attr("disabled", true);
+                }
+            });
+        </script>
