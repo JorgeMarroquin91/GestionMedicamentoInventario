@@ -62,22 +62,8 @@ namespace GestionMedicamentoInventario.Controllers
         public ActionResult Create(int? id)
         {
             Medicamento medicamento = new Medicamento();
-            var kar = from k in db.Kardex
-                      where k.idKardex == id
-                      select k;
-            int idMedicamento = 0;
-
-            foreach (Kardex kard in kar)
-            {
-                if (kard.idKardex == id)
-                {
-                    idMedicamento = kard.idMedicamento;
-                    break;
-                }
-            }
-
             var med = from m in db.Medicamento
-                      where m.idMedicamento == idMedicamento
+                      where m.idMedicamento == id
                       select m;
 
             foreach (Medicamento medi in med)
@@ -86,7 +72,7 @@ namespace GestionMedicamentoInventario.Controllers
                 break;
             }
 
-            ViewBag.idMedicamento = new SelectList(from m in db.Medicamento where m.idMedicamento == idMedicamento select m, "idMedicamento", "nombreMedicamento");
+            ViewBag.idMedicamento = new SelectList(from m in db.Medicamento where m.idMedicamento == id select m, "idMedicamento", "nombreMedicamento");
 
             return View();
         }

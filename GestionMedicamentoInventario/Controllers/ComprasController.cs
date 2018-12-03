@@ -45,7 +45,8 @@ namespace GestionMedicamentoInventario.Controllers
         {
             if (idlote == null)
             {
-                ViewBag.idKardex = new SelectList(db.Kardex, "idKardex", "idKardex");
+                ViewBag.idKardex = new SelectList(db.Medicamento,"idMedicamento","nombreMedicamento");
+                //ViewBag.idKardex = new SelectList(db.Kardex, "idKardex", "idKardex");
                 ViewBag.idLote = new SelectList(from l in db.Lote where l.idLote == null select l, "idLote", "idLote");
                 return View();
             }

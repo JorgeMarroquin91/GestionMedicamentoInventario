@@ -53,8 +53,8 @@
 
             }
 
-            @Html.ActionLink("Lotes", "Create", "Compras", new { idlote = "idLote" }, new { id = "lotes" })
-
+            @Html.ActionLink("CONTINUAR CON LA COMPRA", "Create", "Compras", new { idlote = "idLote" }, new { id = "lotes", @class= "btn btn-default" })
+            <br /><br />
             <div>
                 @Html.ActionLink("Back to List", "Index")
             </div>
@@ -82,7 +82,7 @@
                             $("#lotes").attr("href", function () {
                                 return this.href.replace("idLote", idlote);
                             });
-                            alert("Numero de lote: " + idlote);
+                            alert("Lote Creado Correctamente: " + idlote);
                         }
                     });
                 });
