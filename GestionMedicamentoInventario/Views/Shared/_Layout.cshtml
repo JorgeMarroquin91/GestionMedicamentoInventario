@@ -14,9 +14,11 @@
         <div class="container-fluid">
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="row" id="bs-example-navbar-collapse-1">
-                <div class="nav navbar-nav navbar-right">
-                    <div><h2>@GestionMedicamentoInventario.Seguridad.SessionPersister.Username</h2></div>
-                    <li>@Html.ActionLink("Cerrar Sesión", "Logout", "Account")</li>
+                <div class="nav navbar-nav navbar-left">
+                    <h3 class="navbar-form">@Html.ActionLink("Cerrar Sesión", "Logout", "Account")</h3>
+                </div>
+                <div class="navbar-right">
+                    <h3 class="navbar-form">Usuario: @GestionMedicamentoInventario.Seguridad.SessionPersister.Username </h3>
                 </div>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -26,7 +28,6 @@
             <div class="fixed navbar-fixed-top">
                 <ul class="nav nav-sidebar">
                     <li>@Html.ActionLink("Usuario", "Index", "Usuarios")</li>
-                    <li>@Html.ActionLink("Lote", "Index", "Lotes")</li>
                     <li>@Html.ActionLink("Categoria", "Index", "Categorias")</li>
                     <li>@Html.ActionLink("Entrada", "Index", "Compras")</li>
                     <li>@Html.ActionLink("Detalle", "Index", "Detalles")</li>

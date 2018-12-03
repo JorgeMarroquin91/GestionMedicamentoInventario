@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GestionMedicamentoInventario.Models;
+using GestionMedicamentoInventario.Seguridad;
 
 namespace GestionMedicamentoInventario.Controllers
 {
@@ -15,6 +16,7 @@ namespace GestionMedicamentoInventario.Controllers
         private DB_A41D6A_GestionInventarioEntities1 db = new DB_A41D6A_GestionInventarioEntities1();
 
         // GET: Usuarios
+        [CustomAuthorize(Roles = "usuarioIndex")]
         public ActionResult Index()
         {
             var usuario = db.Usuario.Include(u => u.Rol);
@@ -22,6 +24,7 @@ namespace GestionMedicamentoInventario.Controllers
         }
 
         // GET: Usuarios/Details/5
+        [CustomAuthorize(Roles = "ventasDetails")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +40,7 @@ namespace GestionMedicamentoInventario.Controllers
         }
 
         // GET: Usuarios/Create
+        [CustomAuthorize(Roles = "ventasCreate")]
         public ActionResult Create()
         {
             ViewBag.idRol = new SelectList(db.Rol, "idRol", "idRol");
@@ -48,6 +52,7 @@ namespace GestionMedicamentoInventario.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [CustomAuthorize(Roles = "ventasCreate")]
         public ActionResult Create([Bind(Include = "idUsuario,nombreUsuario,apellidoUsuario,email,telefono,idRol,password,userName")] Usuario usuario)
         {
             if (ModelState.IsValid)
@@ -62,6 +67,7 @@ namespace GestionMedicamentoInventario.Controllers
         }
 
         // GET: Usuarios/Edit/5
+        [CustomAuthorize(Roles = "ventasEdit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,6 +88,7 @@ namespace GestionMedicamentoInventario.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [CustomAuthorize(Roles = "ventasEdit")]
         public ActionResult Edit([Bind(Include = "idUsuario,nombreUsuario,apellidoUsuario,email,telefono,idRol,password,userName")] Usuario usuario)
         {
             if (ModelState.IsValid)
@@ -95,6 +102,7 @@ namespace GestionMedicamentoInventario.Controllers
         }
 
         // GET: Usuarios/Delete/5
+        [CustomAuthorize(Roles = "ventasDelete")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,6 +120,7 @@ namespace GestionMedicamentoInventario.Controllers
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [CustomAuthorize(Roles = "ventasDelete")]
         public ActionResult DeleteConfirmed(int id)
         {
             Usuario usuario = db.Usuario.Find(id);

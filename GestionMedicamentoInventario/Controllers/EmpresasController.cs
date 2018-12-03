@@ -45,6 +45,7 @@ namespace GestionMedicamentoInventario.Controllers
         {
             ViewBag.idInventario = new SelectList(db.Inventario, "idInventario", "idInventario");
             ViewBag.idUsuario = new SelectList(db.Usuario, "idUsuario", "nombreUsuario");
+
             return View();
         }
 

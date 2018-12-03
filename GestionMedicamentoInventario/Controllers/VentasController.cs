@@ -45,7 +45,7 @@ namespace GestionMedicamentoInventario.Controllers
         {
 
             ViewBag.idDescuento = new SelectList(from d in db.Descuento where d.idDescuento == idDescuento select d, "idDescuento", "idDescuento");
-            ViewBag.idKardex = new SelectList(db.Kardex, "idKardex", "idKardex");
+            ViewBag.idKardex = new SelectList(db.Medicamento, "idMedicamento", "nombreMedicamento");
             return View();
         }
 
@@ -64,6 +64,15 @@ namespace GestionMedicamentoInventario.Controllers
             int cantidad = Convert.ToInt32(ventas.cantidad);
             int userIde = 0;
             int? idInv = 0;
+
+            var kar = from k in db.Kardex where k.idMedicamento == ventas.idKardex select k;
+
+            foreach (Kardex kard in kar)
+            {
+                kard.saldo = kard.saldo - ventas.cantidad;
+                break;
+            }
+
 
             foreach (Usuario us in usuario)
             {
@@ -101,8 +110,6 @@ namespace GestionMedicamentoInventario.Controllers
                     venta.precioVenta = ventas.precioVenta;
                     sobra = compguar(venta);
                 }
-
-                Kardex kar = new Kardex();
 
                 return RedirectToAction("Index");
             }

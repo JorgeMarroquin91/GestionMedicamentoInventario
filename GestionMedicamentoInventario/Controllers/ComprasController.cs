@@ -51,8 +51,9 @@ namespace GestionMedicamentoInventario.Controllers
                 return View();
             }
 
-
-            ViewBag.idKardex = new SelectList(db.Kardex, "idKardex", "idKardex");
+            var idkardex = db.Lote.FirstOrDefault(i => i.idLote == idlote).idMedicamento;
+                
+            ViewBag.idKardex = new SelectList(from m in db.Medicamento where m.idMedicamento == idkardex select m, "idMedicamento", "nombreMedicamento");
             ViewBag.idLote = new SelectList(from l in db.Lote where l.idLote == idlote select l, "idLote", "idLote");
             return View();
         }
@@ -91,7 +92,15 @@ namespace GestionMedicamentoInventario.Controllers
                 inventari.existencia = inventari.existencia + existencia;
                 break;
             }
-            Kardex kar = new Kardex();
+
+            var kar = from k in db.Kardex where k.idMedicamento == compras.idKardex select k;
+
+            foreach (Kardex kard in kar)
+            {
+                kard.saldo = kard.saldo + compras.cantidad;
+                break;
+            }
+
             Detalle det = new Detalle();
 
             det.idInventario = idInv;

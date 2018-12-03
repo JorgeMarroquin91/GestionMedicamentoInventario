@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GestionMedicamentoInventario.Models;
+using GestionMedicamentoInventario.Seguridad;
 
 namespace GestionMedicamentoInventario.Controllers
 {
@@ -15,12 +16,14 @@ namespace GestionMedicamentoInventario.Controllers
         private DB_A41D6A_GestionInventarioEntities1 db = new DB_A41D6A_GestionInventarioEntities1();
 
         // GET: Rols
+        [CustomAuthorize(Roles = "rolIndex")]
         public ActionResult Index()
         {
             return View(db.Rol.ToList());
         }
 
         // GET: Rols/Details/5
+        [CustomAuthorize(Roles = "rolDetails")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +39,7 @@ namespace GestionMedicamentoInventario.Controllers
         }
 
         // GET: Rols/Create
+        [CustomAuthorize(Roles = "rolCreate")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +50,7 @@ namespace GestionMedicamentoInventario.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [CustomAuthorize(Roles = "rolCreate")]
         public ActionResult Create([Bind(Include = "idRol,categoriaCreate,categoriaDelete,categoriaDetails,categoriaEdit,categoriaIndex,comprasCreate,comprasDelete,comprasDetails,comprasEdit,comprasIndex,descuentoCreate,descuentoDelete,descuentoDetails,descuentoEdit,descuentoIndex,detallesCreate,detallesDelete,detallesDetails,detallesEdit,detallesIndex,empresaCreate,empresaDelete,empresaDetails,empresaEdit,empresaIndex,inventarioCreate,inventarioDelete,inventarioDetails,inventarioEdit,inventarioIndex,kardexCreate,kardexDelete,kardexDetails,kardexEdit,kardexIndex,loteCreate,loteoDelete,loteDetails,loteEdit,loteIndex,medicamentoCreate,medicamentoDelete,medicamentoDetails,medicamentoEdit,medicamentoIndex,rolCreate,rolDelete,rolDetails,rolEdit,rolIndex,usuarioCreate,usuarioDelete,usuarioDetails,usuarioEdit,usuarioIndex,ventasCreate,ventasDelete,ventasDetails,ventasEdit,ventasIndex")] Rol rol)
         {
             if (ModelState.IsValid)
@@ -59,6 +64,7 @@ namespace GestionMedicamentoInventario.Controllers
         }
 
         // GET: Rols/Edit/5
+        [CustomAuthorize(Roles = "rolEdit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +84,7 @@ namespace GestionMedicamentoInventario.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [CustomAuthorize(Roles = "rolEdit")]
         public ActionResult Edit([Bind(Include = "idRol,categoriaCreate,categoriaDelete,categoriaDetails,categoriaEdit,categoriaIndex,comprasCreate,comprasDelete,comprasDetails,comprasEdit,comprasIndex,descuentoCreate,descuentoDelete,descuentoDetails,descuentoEdit,descuentoIndex,detallesCreate,detallesDelete,detallesDetails,detallesEdit,detallesIndex,empresaCreate,empresaDelete,empresaDetails,empresaEdit,empresaIndex,inventarioCreate,inventarioDelete,inventarioDetails,inventarioEdit,inventarioIndex,kardexCreate,kardexDelete,kardexDetails,kardexEdit,kardexIndex,loteCreate,loteoDelete,loteDetails,loteEdit,loteIndex,medicamentoCreate,medicamentoDelete,medicamentoDetails,medicamentoEdit,medicamentoIndex,rolCreate,rolDelete,rolDetails,rolEdit,rolIndex,usuarioCreate,usuarioDelete,usuarioDetails,usuarioEdit,usuarioIndex,ventasCreate,ventasDelete,ventasDetails,ventasEdit,ventasIndex")] Rol rol)
         {
             if (ModelState.IsValid)
@@ -90,6 +97,7 @@ namespace GestionMedicamentoInventario.Controllers
         }
 
         // GET: Rols/Delete/5
+        [CustomAuthorize(Roles = "rolDelete")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +115,7 @@ namespace GestionMedicamentoInventario.Controllers
         // POST: Rols/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [CustomAuthorize(Roles = "rolDelete")]
         public ActionResult DeleteConfirmed(int id)
         {
             Rol rol = db.Rol.Find(id);

@@ -10,6 +10,7 @@ namespace GestionMedicamentoInventario.Controllers
 {
     public class AccountController : Controller
     {
+        DB_A41D6A_GestionInventarioEntities1 db = new DB_A41D6A_GestionInventarioEntities1();
         // GET: Account
         public ActionResult Index()
         {
@@ -26,13 +27,19 @@ namespace GestionMedicamentoInventario.Controllers
                 return View("Index");
             }
             SessionPersister.Username = avm.Account.userName;
-            return RedirectToAction("Index","Usuarios");
+            var un = db.Usuario.FirstOrDefault(u => u.userName == avm.Account.userName).idUsuario;
+            return RedirectToAction("Inicio");
         }
 
         public ActionResult Logout()
         {
             SessionPersister.Username = string.Empty;
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Inicio()
+        {
+            return View();
         }
     }
 }

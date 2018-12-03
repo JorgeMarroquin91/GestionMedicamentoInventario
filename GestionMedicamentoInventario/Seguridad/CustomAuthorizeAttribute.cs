@@ -22,7 +22,7 @@ namespace GestionMedicamentoInventario.Seguridad
                 CustomPrincipal mp = new CustomPrincipal(am.find(SessionPersister.Username));
                 if (!mp.IsInRole(Roles))
                 {
-                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Usuarios", action = "Index" }));
+                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Account", action = "Inicio" }));
                 }
             }
         }
